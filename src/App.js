@@ -14,23 +14,19 @@ import store from "./toolkit/store";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
 import Cart from "./pages/Cart";
+import userData from "./data/userData";
 
 // This will lazy load Instamart component
 const About = lazy(() => import("./pages/About"));
 
 const AppLayout = () => {
-  const [user, setUser] = useState({
-    username: "anjan",
-    name: "Anjan Karmakar",
-    email: "anjankarmakar15@gmail.com",
-  });
+  const [user] = useState(userData);
 
   return (
     <Provider store={store}>
       <UserContext.Provider value={{ user: user }}>
         <Header />
         {/*all the childreen go in to the  Outlet */}
-
         <Outlet />
         <Footer />
       </UserContext.Provider>

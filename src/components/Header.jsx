@@ -3,15 +3,12 @@ import { ShoppingCart } from "react-feather";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import UserContext from "../contexts/UserContext";
-
+import logoImg from "../assets/img/logo.png";
 import useOnline from "../hooks/useOnline";
 
-const Title = () => (
+const Logo = () => (
   <NavLink to="/" className="logo">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png"
-      alt="logo"
-    />
+    <img data-testid="logo" src={logoImg} alt="logo" />
   </NavLink>
 );
 const NavItems = () => {
@@ -84,7 +81,7 @@ const LogInLogOut = () => {
 
 const Navbar = () => (
   <nav className="navbar">
-    <Title />
+    <Logo />
     <NavItems />
     <LogInLogOut />
   </nav>
