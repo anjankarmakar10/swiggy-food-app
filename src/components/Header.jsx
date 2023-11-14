@@ -30,10 +30,13 @@ const NavItems = () => {
       </NavLink>
       <Link to={"cart"} className="nav-link">
         <li>
-          <div className="relative">
+          <div data-testid="cart" className="relative">
             <ShoppingCart />
             {cartItems.length !== 0 && (
-              <div className="bg-[#ffb0b0] absolute top-[-20px] right-[-20px] h-7 w-7 rounded-full grid place-content-center pt-[2px] text-[#353434] ">
+              <div
+                data-testid="cart-count"
+                className="bg-[#ffb0b0] absolute top-[-20px] right-[-20px] h-7 w-7 rounded-full grid place-content-center pt-[2px] text-[#353434] "
+              >
                 {cartItems.length}
               </div>
             )}
@@ -92,7 +95,10 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className={isOnline ? "online" : "offline"}>
+      <div
+        data-testid="online-status"
+        className={isOnline ? "online" : "offline"}
+      >
         <div style={{ backgroundColor: "teal", textAlign: "center" }}>
           Offline, Please check your internet connection!!!
         </div>
